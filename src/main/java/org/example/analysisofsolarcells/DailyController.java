@@ -41,7 +41,7 @@ public class DailyController {
         FXMLLoader fxmlLoader = new FXMLLoader(DailyController.class.getResource("Monthly-view.fxml"));
         Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 667, 525);
-        stage.setTitle("login Screen");
+        stage.setTitle("Monthly Solar Cell Analysis");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

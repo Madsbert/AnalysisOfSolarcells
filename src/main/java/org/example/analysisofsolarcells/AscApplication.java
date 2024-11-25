@@ -12,7 +12,7 @@ public class AscApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AscApplication.class.getResource("Daily-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),609, 570);
-        stage.setTitle("Hello!");
+        stage.setTitle("Daily Solar Cell Analysis");
         stage.setScene(scene);
         stage.show();
     }
