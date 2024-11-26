@@ -32,7 +32,9 @@ public class DailyController {
     //Get the Date and saves it as String named formattedDate.
     public void getDate(ActionEvent event) {
          LocalDate selectedDate = DatePicker.getValue();
+         //Changes format for date.
          String formattedDate = selectedDate.format(DateTimeFormatter.ofPattern("dd/MMM/yyyy"));
+         //test print
          System.out.println(formattedDate);
     }
 
@@ -40,7 +42,7 @@ public class DailyController {
     public void onMonthlySwitchClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(DailyController.class.getResource("Monthly-view.fxml"));
         Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 667, 525);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Monthly Solar Cell Analysis");
         stage.setScene(scene);
         stage.setResizable(false);

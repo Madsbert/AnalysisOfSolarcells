@@ -35,7 +35,7 @@ public class MonthlyController {
         valueFactory.setValue(2024);
         //inserts start value
         YearSpinner.setValueFactory(valueFactory);
-        //sets the value to currentWeight variable, for calculation
+        //saved the selected year, and saves it as a string.
         currentYear = YearSpinner.getValue();
 
 
@@ -63,7 +63,7 @@ public class MonthlyController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MonthlyController.class.getResource("Daily-view.fxml"));
         Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 667, 525);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Daily Solar Cell Analysis");
         stage.setScene(scene);
         stage.setResizable(false);
