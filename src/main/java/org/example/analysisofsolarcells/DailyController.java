@@ -16,17 +16,9 @@ import java.util.ResourceBundle;
 public class DailyController {
 
     @FXML
-    private ChoiceBox<String> SiteIDChoiceBox;
-    private String[] SiteID = {"1234","5678"};
-    private String selectedSiteID="";
-    @FXML
     private DatePicker DatePicker;
 
     public void initialize() {
-        //Creating a ChoiceBox for site ID.
-        SiteIDChoiceBox.getItems().addAll(SiteID);
-        //selected Site ID is saved as a String
-        SiteIDChoiceBox.setValue(selectedSiteID);
     }
 
     //Get the Date and saves it as String named formattedDate.

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -8,6 +9,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -16,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.MonthlyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.MonthlyController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,6 +36,9 @@
                      <GridPane.margin>
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ChoiceBox>
                   <Spinner fx:id="YearSpinner" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #4caf50; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4);" GridPane.columnIndex="1">
                      <opaqueInsets>
@@ -42,18 +47,18 @@
                      <GridPane.margin>
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Spinner>
-                  <ChoiceBox fx:id="SiteIDChoiceBox" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #4caf50; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4); -fx-border-color: lightGreen;" GridPane.columnIndex="2">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
+                  <TextField prefHeight="114.0" prefWidth="203.0" promptText="Indtast ID" style="-fx-border-color: #4caf50; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4);" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
-                  </ChoiceBox>
+                  </TextField>
                </children>
             </GridPane>
-            <BarChart prefHeight="249.0" prefWidth="609.0">
+            <BarChart prefHeight="320.0" prefWidth="610.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
@@ -86,10 +91,13 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#onDailySwitchClick" prefHeight="74.0" prefWidth="147.0" style="-fx-background-color: #4caf50; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4); -fx-border-color: lightGreen;" text="Dagligt">
+                  <Button fx:id="DailySwitchButton" mnemonicParsing="false" onAction="#onDailySwitchClick" prefHeight="74.0" prefWidth="147.0" styleClass="DailySwitchButton-button" stylesheets="@Styling.css" text="Dagligt">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </HBox>

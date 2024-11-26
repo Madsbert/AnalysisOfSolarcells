@@ -1,0 +1,12 @@
+.DailySwitchButton-button{
+    -fx-background-color:  #4caf50;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect:  dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4);
+    -fx-border-color:  lightGreen;
+}
+
+.DailySwitchButton-button:hover {
+    -fx-background-color: #dcedc8;
+    -fx-text-fill: black;
+}

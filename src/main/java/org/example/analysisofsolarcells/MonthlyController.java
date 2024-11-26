@@ -21,11 +21,6 @@ public class MonthlyController {
             "January", "February", "March", "April", "May", "June","July", "August", "September", "October","November","December"};
     private String selectedMonth="";
 
-    @FXML
-    private ChoiceBox<String> SiteIDChoiceBox;
-    private String[] SiteID = {"1234","5678"};
-    private String selectedSiteID="";
-
 
 
     public void initialize() {
@@ -41,11 +36,10 @@ public class MonthlyController {
 
         //Creating ChoiceBoxes
         MonthChoiceBox.getItems().addAll(Months);
+        MonthChoiceBox.setValue("Vælg måned");
         //selected month is saved as a String.
         selectedMonth = MonthChoiceBox.getValue();
-        SiteIDChoiceBox.getItems().addAll(SiteID);
-        //selected Site ID is saved as a String
-        SiteIDChoiceBox.setValue(selectedSiteID);
+
     }
 
 
