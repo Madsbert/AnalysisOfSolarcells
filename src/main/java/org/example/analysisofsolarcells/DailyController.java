@@ -25,7 +25,9 @@ public class DailyController {
     @FXML
     private TextField siteIDTextField;
     @FXML
-            private LineChart<Number,Number> dailyLineChart;
+    private LineChart<Number,Number> dailyLineChart;
+    @FXML
+    private Label resultLabel;
 
     Measurement[] measurements = new Measurement[24];
 
@@ -61,6 +63,9 @@ public class DailyController {
     {
         getMeasurements();
         displayGraph();
+        int totalKwh = Calculations.calculateTotalKwh();
+        resultLabel.setText("Total Kwh: " + totalKwh);
+
     }
 
     public void getMeasurements() throws FileNotFoundException
