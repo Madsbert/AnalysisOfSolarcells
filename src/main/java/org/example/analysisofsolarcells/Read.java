@@ -41,13 +41,13 @@ public class Read {
             online[index] = Integer.parseInt(values[5]);
             offline[index] = Integer.parseInt(values[6]);
 
-            /*
+
             if(matchFound<24 && siteId == site[index] && datePickerDate.equals(dates[index]))
             {
                 onlineVar[index] = online[index];
                 matchFound++;
             }
-            */
+
             index++;
         }
 

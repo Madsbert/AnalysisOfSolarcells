@@ -19,6 +19,8 @@ public class DailyController {
 
     @FXML
     private DatePicker DatePicker;
+    @FXML
+            private TextField siteIDTextField;
 
     Measurement[] measurements = new Measurement[24];
 
@@ -26,12 +28,14 @@ public class DailyController {
     }
 
     //Get the Date and saves it as String named formattedDate.
-    public void getDate(ActionEvent event) {
-         LocalDate selectedDate = DatePicker.getValue();
-         //Changes format for date.
-         String formattedDate = selectedDate.format(DateTimeFormatter.ofPattern("dd/MMM/yyyy"));
-         //test print
-         System.out.println(DatePicker.getValue());
+    public String getDate() {
+
+         String selectedDate = DatePicker.getValue().toString();
+         return selectedDate;
+    }
+    public int getSiteID() {
+        int siteID = Integer.parseInt(siteIDTextField.getText());
+        return siteID;
     }
 
     //switches to monthly Scene.
