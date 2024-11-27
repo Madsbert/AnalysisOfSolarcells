@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.DailyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.DailyController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -87,6 +87,7 @@
                      </font>
                   </Button>
                   <Label fx:id="resultLabel" alignment="CENTER" prefHeight="195.0" prefWidth="802.0" GridPane.rowIndex="1" />
+                  <Label fx:id="compare" alignment="CENTER" prefHeight="27.0" prefWidth="643.0" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children></VBox>
