@@ -9,7 +9,7 @@ public class Measurement {
         this.online = online;
     }
 
-
+   //Getters
     public int getOnline() {
         return online;
     }
