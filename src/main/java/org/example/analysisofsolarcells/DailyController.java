@@ -20,7 +20,7 @@ public class DailyController {
     @FXML
     private DatePicker DatePicker;
     @FXML
-            private TextField siteIDTextField;
+    private TextField siteIDTextField;
 
     Measurement[] measurements = new Measurement[24];
 
@@ -52,13 +52,15 @@ public class DailyController {
     public void onCompareGraphClick(ActionEvent actionEvent) {
         //if time, create a method the clears choiceboxes, datepicker and results, and allows a new graph.
     }
-    public void onShowGraphClick(ActionEvent actionEvent) {
+    public void onShowGraphClick() throws FileNotFoundException
+    {
+        getMeasurements();
     }
 
     public void getMeasurements() throws FileNotFoundException
     {
         Read dataReader = new Read();
-        dataReader.readFile();
+        dataReader.readFile(getSiteID(), getDate());
         for(int i = 0; i < measurements.length; i++)
         {
             int online;
