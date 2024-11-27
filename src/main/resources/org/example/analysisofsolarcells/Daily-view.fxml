@@ -17,19 +17,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.DailyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.DailyController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <GridPane>
-              <columnConstraints>
+               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <DatePicker fx:id="DatePicker" onAction="#getDate" prefHeight="40.0" prefWidth="206.0" promptText="Vælg Dato" style="-fx-background-color: #4caf50; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4);" GridPane.columnIndex="1">
                      <GridPane.margin>
@@ -46,6 +46,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Button>
                   <TextField fx:id="siteIDTextField" prefHeight="108.0" prefWidth="163.0" promptText="Indtast ID" style="-fx-border-color: #4caf50; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 4, 4); -fx-background-radius: 10;" GridPane.columnIndex="2">
                      <opaqueInsets>
@@ -57,19 +60,35 @@
                   </TextField>
                </children>
             </GridPane>
-            <BarChart prefHeight="320.0" prefWidth="610.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
+            <BarChart prefHeight="291.0" prefWidth="610.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
             </BarChart>
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="610.0" text="Beregninger">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onShowGraphClick" prefHeight="27.0" prefWidth="694.0" styleClass="DailySwitchButton-button" stylesheets="@Styling.css" text="Hvis Graf">
+                     <GridPane.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="ResultLabel" alignment="CENTER" prefHeight="195.0" prefWidth="802.0" text="show calculations" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
          </children></VBox>
    </center>
    <top>
