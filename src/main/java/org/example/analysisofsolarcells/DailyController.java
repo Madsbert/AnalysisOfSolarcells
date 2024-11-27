@@ -50,21 +50,21 @@ public class DailyController {
         //if time, create a method the clears choiceboxes, datepicker and results, and allows a new graph.
     }
     public void onShowGraphClick(ActionEvent actionEvent) {
+    }
 
-    public void getMeasurements()
-    {
-
-        for(int i = 0; i < measurements.length; i++)
+        public void getMeasurements()
         {
-            int online;
 
-            Read dataReader = new Read();
+            for (int i = 0; i < measurements.length; i++) {
+                int online;
 
-            //online = dataReader.online[i];
+                Read dataReader = new Read();
 
-            //measurements[i] = new Measurement(online);
+                //online = dataReader.online[i];
+
+                //measurements[i] = new Measurement(online);
+            }
+
         }
 
     }
-
-}
