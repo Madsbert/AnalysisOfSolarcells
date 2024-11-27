@@ -86,7 +86,18 @@ public class DailyController {
 
         series.setName("Produktionen i dag");
         for (int i = 0; i < measurements.length; i++){
-            series.getData().add(new XYChart.Data<>(i,measurements[i].getOnline()));
+            String xName;
+
+            if(i<10)
+            {
+                xName = "0" + i;
+            }
+            else
+            {
+                xName = "" + i;
+            }
+            series.getData().add(new XYChart.Data<>(xName,measurements[i].getOnline()));
+
         }
 
         dailyLineChart.getData().addAll(series);
