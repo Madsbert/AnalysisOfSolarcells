@@ -28,6 +28,8 @@ public class Read {
 
         int index = 0;
         while (scanner.hasNextLine()) {
+            int matchFound = 0;
+
             String line = scanner.nextLine();
             String[] values = line.split("[\tT]");
 
@@ -39,10 +41,13 @@ public class Read {
             online[index] = Integer.parseInt(values[5]);
             offline[index] = Integer.parseInt(values[6]);
 
-            if(index<24)
+            /*
+            if(matchFound<24 && siteId == site[index] && datePickerDate.equals(dates[index]))
             {
                 onlineVar[index] = online[index];
+                matchFound++;
             }
+            */
             index++;
         }
 
