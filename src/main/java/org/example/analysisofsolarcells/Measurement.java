@@ -8,6 +8,8 @@ public class Measurement {
     public Measurement(int online) {
         this.online = online;
     }
+
+
     public int getOnline() {
         return online;
     }

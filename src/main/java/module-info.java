@@ -10,6 +10,7 @@ module org.example.analysisofsolarcells {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires annotations;
 
     opens org.example.analysisofsolarcells to javafx.fxml;
     exports org.example.analysisofsolarcells;
