@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class Read {
+
+    static int onlineVar[] = new int[24];
+
     public static void readFile() throws FileNotFoundException {
 
         int linesInFile = 100001;
@@ -36,11 +39,21 @@ public class Read {
             online[index] = Integer.parseInt(values[5]);
             offline[index] = Integer.parseInt(values[6]);
 
+            if(index<24)
+            {
+                onlineVar[index] = online[index];
+            }
             index++;
         }
 
         scanner.close();
 
         System.out.println("Measurement id: " + meassurementID[1]+ ", Date: " + dates[1] + ", Time: " + time[1] + ", Site: " + site[1] + ", Total: " + total[1] + ", Online: " + online[1] + ", Offline: " + offline[1]);
+
+    }
+
+    public int getOnlineVar(int index)
+    {
+        return onlineVar[index];
     }
 }

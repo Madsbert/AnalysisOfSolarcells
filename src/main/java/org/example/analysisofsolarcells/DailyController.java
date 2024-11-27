@@ -49,18 +49,18 @@ public class DailyController {
         //if time, create a method the clears choiceboxes, datepicker and results, and allows a new graph.
     }
 
-    public void getMeasurements()
+    public void getMeasurements() throws FileNotFoundException
     {
-
+        Read dataReader = new Read();
+        dataReader.readFile();
         for(int i = 0; i < measurements.length; i++)
         {
             int online;
 
-            Read dataReader = new Read();
+            online = dataReader.getOnlineVar(i);
 
-            //online = dataReader.online[i];
-
-            //measurements[i] = new Measurement(online);
+            measurements[i] = new Measurement(online);
+            System.out.println(online);
         }
 
     }
