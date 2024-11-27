@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,14 +14,14 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class DailyController {
 
     @FXML
     private DatePicker DatePicker;
+
+    Measurement[] measurements = new Measurement[24];
 
     public void initialize() {
     }
@@ -31,7 +32,7 @@ public class DailyController {
          //Changes format for date.
          String formattedDate = selectedDate.format(DateTimeFormatter.ofPattern("dd/MMM/yyyy"));
          //test print
-         System.out.println(formattedDate);
+         System.out.println(DatePicker.getValue());
     }
 
     //switches to monthly Scene.
@@ -50,5 +51,20 @@ public class DailyController {
     }
     public void onShowGraphClick(ActionEvent actionEvent) {
 
+    public void getMeasurements()
+    {
+
+        for(int i = 0; i < measurements.length; i++)
+        {
+            int online;
+
+            Read dataReader = new Read();
+
+            //online = dataReader.online[i];
+
+            //measurements[i] = new Measurement(online);
+        }
+
     }
+
 }
