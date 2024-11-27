@@ -42,17 +42,6 @@ public class MonthlyController {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
     public void onDailySwitchClick(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MonthlyController.class.getResource("Daily-view.fxml"));

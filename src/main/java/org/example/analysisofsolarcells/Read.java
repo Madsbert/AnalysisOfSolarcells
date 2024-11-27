@@ -11,7 +11,6 @@ public class Read {
     public static void readFile(int siteId, String datePickerDate) throws FileNotFoundException {
 
         int linesInFile = 100001;
-        int matchFound = 0;
 
         int[] meassurementID = new int[linesInFile];
         String[] dates = new String[linesInFile];
@@ -28,7 +27,10 @@ public class Read {
         Scanner scanner = new Scanner(inputFile);
 
         int index = 0;
-        while (scanner.hasNextLine()) {
+        int matchFound = 0;
+
+        while (scanner.hasNextLine()&&matchFound<24) {
+
 
             String line = scanner.nextLine();
             String[] values = line.split("[\tT]");
@@ -42,7 +44,7 @@ public class Read {
             offline[index] = Integer.parseInt(values[6]);
 
 
-            if(matchFound<24 && siteId == site[index] && datePickerDate.equals(dates[index]))
+            if(siteId == site[index] && datePickerDate.equals(dates[index]))
             {
                 onlineVar[matchFound] = online[index];
                 System.out.println(onlineVar[matchFound]);
