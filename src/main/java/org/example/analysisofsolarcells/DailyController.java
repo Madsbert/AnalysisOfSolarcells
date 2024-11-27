@@ -104,7 +104,6 @@ public class DailyController {
             series.getData().add(new XYChart.Data<>(xName,measurements[i].getOnline()));
 
         }
-
         dailyLineChart.getData().addAll(series);
 
 

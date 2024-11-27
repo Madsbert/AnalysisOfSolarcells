@@ -50,7 +50,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <LineChart fx:id="dailyLineChart" prefHeight="314.0" prefWidth="610.0" visible="false">
+            <LineChart fx:id="dailyLineChart" animated="false" createSymbols="false" prefHeight="314.0" prefWidth="610.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
