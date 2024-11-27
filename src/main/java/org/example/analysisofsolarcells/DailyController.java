@@ -82,13 +82,15 @@ public class DailyController {
     public void displayGraph(){
 
 
-        XYChart.Series series = new XYChart.Series();
+        XYChart.Series<Number,Number> series = new XYChart.Series();
 
         series.setName("Produktionen i dag");
         for (int i = 0; i < measurements.length; i++){
-            series.getData().add(new XYChart.Data<>(i,measurements[i]));
+            series.getData().add(new XYChart.Data<>(i,measurements[i].getOnline()));
         }
 
+        dailyLineChart.getXAxis().setLabel("Hour of the Day");
+        dailyLineChart.getYAxis().setLabel("Production Value");
         dailyLineChart.getData().addAll(series);
 
 

@@ -11,6 +11,7 @@ public class Read {
     public static void readFile(int siteId, String datePickerDate) throws FileNotFoundException {
 
         int linesInFile = 100001;
+        int matchFound = 0;
 
         int[] meassurementID = new int[linesInFile];
         String[] dates = new String[linesInFile];
@@ -28,7 +29,6 @@ public class Read {
 
         int index = 0;
         while (scanner.hasNextLine()) {
-            int matchFound = 0;
 
             String line = scanner.nextLine();
             String[] values = line.split("[\tT]");
