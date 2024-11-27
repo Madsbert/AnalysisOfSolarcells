@@ -63,9 +63,12 @@ public class DailyController {
     {
         getMeasurements();
         displayGraph();
-        int totalKwh = Calculations.calculateTotalKwh();
-        resultLabel.setText("Total Kwh: " + totalKwh);
+        updatetotalKwh();
+    }
 
+    private void updatetotalKwh() {
+        int totalKwh = Calculations.calculateTotalKwh(measurements);
+        resultLabel.setText("Total Kwh: " + totalKwh);
     }
 
     public void getMeasurements() throws FileNotFoundException

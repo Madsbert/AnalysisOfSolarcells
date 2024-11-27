@@ -19,7 +19,5 @@ public class AscApplication extends Application {
 
     public static void main(String[] args)throws IOException {
         launch();
-        //DailyController daily = new DailyController();
-        //daily.getMeasurements();
     }
 }
