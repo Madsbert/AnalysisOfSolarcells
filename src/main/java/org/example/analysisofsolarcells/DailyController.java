@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
@@ -12,6 +14,7 @@ import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -21,6 +24,8 @@ public class DailyController {
     private DatePicker DatePicker;
     @FXML
     private TextField siteIDTextField;
+    @FXML
+            private LineChart<Number,Number> dailyLineChart;
 
     Measurement[] measurements = new Measurement[24];
 
@@ -55,6 +60,7 @@ public class DailyController {
     public void onShowGraphClick() throws FileNotFoundException
     {
         getMeasurements();
+        displayGraph();
     }
 
     public void getMeasurements() throws FileNotFoundException
@@ -73,4 +79,19 @@ public class DailyController {
 
     }
 
+    public void displayGraph(){
+
+
+        XYChart.Series series = new XYChart.Series();
+
+        series.setName("Produktionen i dag");
+        for (int i = 0; i < measurements.length; i++){
+            series.getData().add(new XYChart.Data<>(i,measurements[i]));
+        }
+
+        dailyLineChart.getData().addAll(series);
+
+
+    }
 }
+
