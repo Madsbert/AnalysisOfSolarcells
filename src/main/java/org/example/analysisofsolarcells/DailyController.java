@@ -48,5 +48,7 @@ public class DailyController {
     public void onCompareGraphClick(ActionEvent actionEvent) {
         //if time, create a method the clears choiceboxes, datepicker and results, and allows a new graph.
     }
+    public void onShowGraphClick(ActionEvent actionEvent) {
 
+    }
 }
