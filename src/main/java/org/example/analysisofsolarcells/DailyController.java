@@ -8,10 +8,14 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class DailyController {
 
@@ -44,4 +48,5 @@ public class DailyController {
     public void onCompareGraphClick(ActionEvent actionEvent) {
         //if time, create a method the clears choiceboxes, datepicker and results, and allows a new graph.
     }
+
 }
