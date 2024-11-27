@@ -31,7 +31,7 @@ public class DailyController {
          //Changes format for date.
          String formattedDate = selectedDate.format(DateTimeFormatter.ofPattern("dd/MMM/yyyy"));
          //test print
-         System.out.println(formattedDate);
+         System.out.println(DatePicker.getValue());
     }
 
     //switches to monthly Scene.

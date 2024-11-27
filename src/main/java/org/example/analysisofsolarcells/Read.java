@@ -1,4 +1,4 @@
-import org.example.analysisofsolarcells.DailyController;
+package org.example.analysisofsolarcells;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
