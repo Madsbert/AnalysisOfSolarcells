@@ -8,15 +8,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
-import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class DailyController {
 
@@ -29,12 +22,11 @@ public class DailyController {
     private LineChart<Number,Number> dailyLineChart;
     @FXML
     private Label resultLabel;
+    @FXML
+    private Label compare;
 
     //Array to save the measurements for a day
     Measurement[] measurements = new Measurement[24];
-
-    public void initialize() {
-    }
 
     //Get the Date and saves it as String named formattedDate.
     public String getDate() {
@@ -65,24 +57,35 @@ public class DailyController {
         stage.show();
     }
 
-    //Method to compare
-    //maybe should be changed to erase??
-    public void onCompareGraphClick(ActionEvent actionEvent) {
-        //if time, create a method the clears choiceboxes, datepicker and results, and allows a new graph.
+    //Method to compare graphs
+    public void onCompareGraphClick(ActionEvent actionEvent) throws FileNotFoundException {
+        if (graphClick){
+            getMeasurements();
+            displayGraph();
+            compareTotalKwh();
+        }
     }
 
     //Method which shows information when user clicks the button
+    private boolean graphClick =false;
     public void onShowGraphClick() throws FileNotFoundException
     {
+        dailyLineChart.getData().clear();
         getMeasurements();
         displayGraph();
-        updatetotalKwh();
+        updateTotalKwh();
+        graphClick =true;
     }
 
     //calculates and updates total kwh in a label
-    private void updatetotalKwh() {
+    private void updateTotalKwh() {
         int totalKwh = Calculations.calculateTotalKwh(measurements);
         resultLabel.setText("Total Kwh: " + totalKwh);
+    }
+
+    private void compareTotalKwh() {
+        int totalKwh = Calculations.calculateTotalKwh(measurements);
+        compare.setText("Total Kwh: " + totalKwh);
     }
 
     //gets measurements for a day based on site-ID and chosen date
@@ -103,7 +106,7 @@ public class DailyController {
     //shows graph based on measurements
     public void displayGraph(){
         XYChart.Series series = new XYChart.Series();
-        series.setName("Produktionen i dag");
+        series.setName("Produktion i kwh");
 
         //adds data to the series hourly
         for (int i = 0; i < measurements.length; i++){
