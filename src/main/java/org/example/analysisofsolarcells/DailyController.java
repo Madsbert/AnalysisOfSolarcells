@@ -36,7 +36,6 @@ public class DailyController {
 
     //Get the Date and saves it as String named formattedDate.
     public String getDate() {
-
          String selectedDate = DatePicker.getValue().toString();
          return selectedDate;
     }

@@ -11,6 +11,7 @@ module org.example.analysisofsolarcells {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires annotations;
+    requires java.desktop;
 
     opens org.example.analysisofsolarcells to javafx.fxml;
     exports org.example.analysisofsolarcells;
