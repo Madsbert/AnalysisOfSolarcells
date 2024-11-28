@@ -32,7 +32,7 @@ public class MonthlyController {
     private Label resultLabelMonthly;
     @FXML
     private LineChart<Number, Number> monthlyLineChart;
-    Measurement[] monthlyMeasurements = new Measurement[32];
+    Measurement[] monthlyMeasurements = new Measurement[31];
 
 
     public void initialize() {
@@ -110,7 +110,7 @@ public class MonthlyController {
     }
     public int getDaysInMonth() throws FileNotFoundException {
 
-        int daysInMonth = 31;
+        int daysInMonth = 1;
         switch (MonthChoiceBox.getValue()) {
             case "January", "March", "May", "July", "August", "October", "December":
                 daysInMonth = 31;
@@ -168,9 +168,9 @@ public class MonthlyController {
         Read dataReader = new Read();
 
         {
-            for (int day = 0; day <= daysInMonth; day++) {
+            for (int day = 0; day < daysInMonth; day++) {
                 int onlineDayliTotal = 0;
-                int dayCheckDay = day++;
+                int dayCheckDay = day+1;
                 String checkDay;
                 if(dayCheckDay<10)
                 {
@@ -190,10 +190,9 @@ public class MonthlyController {
                 }
 
                 monthlyMeasurements[day] = new Measurement(onlineDayliTotal);
-                System.out.println("Day " + day + ": " + onlineDayliTotal);
-                System.out.println(monthlyMeasurements[day].getOnline());
+                //System.out.println("Day " + day + ": " + onlineDayliTotal);
+                //System.out.println(monthlyMeasurements[day].getOnline());
             }
-            //System.out.println(""+monthlyMeasurements[1].getOnline()+monthlyMeasurements[7].getOnline()+monthlyMeasurements[29].getOnline()+monthlyMeasurements[13].getOnline()+monthlyMeasurements[25].getOnline()+monthlyMeasurements[19].getOnline());
         }
     }
 }

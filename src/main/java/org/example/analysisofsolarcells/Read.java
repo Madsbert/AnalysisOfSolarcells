@@ -8,7 +8,6 @@ public class Read {
 
     //Array to save 24measurements (1day)
     static int onlineVar[] = new int[24];
-    static int onlineVarMonth[] = new int[31];
 
     /**
      * Reads data from a TSV-file and saves the online measurements which matches a site-ID and date
@@ -63,7 +62,7 @@ public class Read {
             if(siteId == site[index] && datePickerDate.equals(dates[index]))
             {
                 onlineVar[matchFound] = online[index];
-                System.out.println(onlineVar[matchFound]);
+                //System.out.println(onlineVar[matchFound]);
                 matchFound++;
             }
 
@@ -130,7 +129,7 @@ public class Read {
             if(siteId == site[indexMonth] && selectedMonth.equals(month[indexMonth]) && selectedYear == year[indexMonth] && checkDay.equals(day[indexMonth]))
             {
                 onlineVar[matchFoundMonth] = online[indexMonth];
-                System.out.println(onlineVar[matchFoundMonth]);
+                //System.out.println(onlineVar[matchFoundMonth]);
                 matchFoundMonth++;
             }
 
