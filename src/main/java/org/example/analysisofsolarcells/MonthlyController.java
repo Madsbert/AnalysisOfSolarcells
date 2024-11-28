@@ -32,7 +32,7 @@ public class MonthlyController {
     private Label resultLabelMonthly;
     @FXML
     private LineChart<Number, Number> monthlyLineChart;
-    Measurement[] monthlyMeasurements = new Measurement[31];
+    Measurement[] monthlyMeasurements = new Measurement[32];
 
 
     public void initialize() {
@@ -102,7 +102,6 @@ public class MonthlyController {
     }
 
     public void onShowGraphClickMonthly() throws FileNotFoundException {
-
        getDaysInMonth();
        updateTotalKwhMonthly();
 
@@ -138,7 +137,6 @@ public class MonthlyController {
 
     private void displayMonthlyGraph(int daysInMonth) {
 
-
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
 
         series.setName("Produktionen i dag");
@@ -160,19 +158,19 @@ public class MonthlyController {
         Read dataReader = new Read();
 
         {
-            for (int day = 1; day <= daysInMonth; day++) {
+            for (int day = 0; day <= daysInMonth; day++) {
                 int onlineDayliTotal = 0;
                 String checkDay;
                 if(day<10)
                 {
-                    checkDay = "0" + day;
+                    checkDay = "0" + day+1;
                 }
                 else
                 {
-                    checkDay = Integer.toString(day);
+                    checkDay = Integer.toString(day+1);
                 }
 
-                dataReader.fileReaderMonthly(getSiteID(), getMonth(), getYear(), checkDay);
+                Read.fileReaderMonthly(getSiteID(), getMonth(), getYear(), checkDay);
 
                 //day starter som 1, <= days in month, string
 
@@ -181,9 +179,10 @@ public class MonthlyController {
                 }
 
                 monthlyMeasurements[day] = new Measurement(onlineDayliTotal);
-                //System.out.println("Day " + (day + 1) + ": " + onlineDayliTotal);
+                System.out.println("Day " + day + ": " + onlineDayliTotal);
+                System.out.println(monthlyMeasurements[day].getOnline());
             }
-            System.out.println(""+monthlyMeasurements[1].getOnline()+monthlyMeasurements[7].getOnline()+monthlyMeasurements[29].getOnline()+monthlyMeasurements[13].getOnline()+monthlyMeasurements[25].getOnline()+monthlyMeasurements[19].getOnline());
+            //System.out.println(""+monthlyMeasurements[1].getOnline()+monthlyMeasurements[7].getOnline()+monthlyMeasurements[29].getOnline()+monthlyMeasurements[13].getOnline()+monthlyMeasurements[25].getOnline()+monthlyMeasurements[19].getOnline());
         }
     }
 }

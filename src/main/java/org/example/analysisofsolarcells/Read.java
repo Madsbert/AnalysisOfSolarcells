@@ -118,8 +118,13 @@ public class Read {
             time[indexMonth] = values[4];
             site[indexMonth] = Integer.parseInt(values[5]);
             total[indexMonth] = Integer.parseInt(values[6]);
+            if (values[7].isEmpty())
+            {
+                values[7] = "69696420";
+            }
             online[indexMonth] = Integer.parseInt(values[7]);
-            //offline[indexMonth] = Integer.parseInt(values[8]);
+
+            // offline[indexMonth] = Integer.parseInt(values[8]);
 
 
             if(siteId == site[indexMonth] && selectedMonth.equals(month[indexMonth]) && selectedYear == year[indexMonth] && checkDay.equals(day[indexMonth]))
