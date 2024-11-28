@@ -137,15 +137,25 @@ public class MonthlyController {
 
     private void displayMonthlyGraph(int daysInMonth) {
 
-        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        XYChart.Series series = new XYChart.Series<>();
 
         series.setName("Produktionen i dag");
         for (int i = 0; i < daysInMonth; i++){
+            int numberToAdd;
+            String dayToAdd = "" + (i + 1);
 
-            series.getData().add(new XYChart.Data<>(i+1,monthlyMeasurements[i].getOnline()));
+            if(monthlyMeasurements[i]==null)
+            {
+                numberToAdd = 0;
+            }
+            else
+            {
+                numberToAdd = monthlyMeasurements[i].getOnline();
+            }
+            series.getData().add(new XYChart.Data<>(dayToAdd,numberToAdd));
 
         }
-        monthlyLineChart.getData().add(series);
+        monthlyLineChart.getData().addAll(series);
 
     }
 
@@ -160,14 +170,15 @@ public class MonthlyController {
         {
             for (int day = 0; day <= daysInMonth; day++) {
                 int onlineDayliTotal = 0;
+                int dayCheckDay = day++;
                 String checkDay;
-                if(day<10)
+                if(dayCheckDay<10)
                 {
-                    checkDay = "0" + day+1;
+                    checkDay = "0" + dayCheckDay;
                 }
                 else
                 {
-                    checkDay = Integer.toString(day+1);
+                    checkDay = Integer.toString(dayCheckDay);
                 }
 
                 Read.fileReaderMonthly(getSiteID(), getMonth(), getYear(), checkDay);

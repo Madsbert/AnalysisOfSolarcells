@@ -120,7 +120,7 @@ public class Read {
             total[indexMonth] = Integer.parseInt(values[6]);
             if (values[7].isEmpty())
             {
-                values[7] = "69696420";
+                values[7] = "0";
             }
             online[indexMonth] = Integer.parseInt(values[7]);
 

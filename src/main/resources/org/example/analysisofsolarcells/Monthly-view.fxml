@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.chart.CategoryAxis?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="609.0" style="-fx-background-color: linear-gradient(to bottom, #fff3b0, #f2e666);" stylesheets="@Styling.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.analysisofsolarcells.MonthlyController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -57,9 +58,9 @@
                   </TextField>
                </children>
             </GridPane>
-            <LineChart fx:id="monthlyLineChart" prefHeight="326.0" prefWidth="610.0">
+            <LineChart fx:id="monthlyLineChart" animated="false" createSymbols="false" prefHeight="326.0" prefWidth="610.0">
               <xAxis>
-                <NumberAxis side="BOTTOM" />
+                <CategoryAxis side="BOTTOM" />
               </xAxis>
               <yAxis>
                 <NumberAxis side="LEFT" />
