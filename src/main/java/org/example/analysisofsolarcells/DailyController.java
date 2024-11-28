@@ -57,7 +57,7 @@ public class DailyController {
     }
 
     //Method to compare graphs
-    public void onCompareGraphClick(ActionEvent actionEvent) throws FileNotFoundException {
+    public void onCompareGraphClick() throws FileNotFoundException {
         if (graphClick){
             getMeasurements();
             displayGraph();
@@ -66,7 +66,7 @@ public class DailyController {
     }
 
     //Method which shows information when user clicks the button
-    private boolean graphClick =false;
+    private boolean graphClick = false;
     public void onShowGraphClick() throws FileNotFoundException
     {
         dailyLineChart.getData().clear();
@@ -125,8 +125,6 @@ public class DailyController {
 
         }
         dailyLineChart.getData().addAll(series);
-
-
     }
 }
 

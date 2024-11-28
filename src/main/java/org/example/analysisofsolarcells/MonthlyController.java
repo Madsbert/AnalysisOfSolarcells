@@ -49,34 +49,34 @@ public class MonthlyController {
 
     }
 
-    public int getMonth() {
+    public String getMonth() {
         switch (MonthChoiceBox.getValue()) {
             case "January":
-                return 1;
+                return "01";
             case "February":
-                return 2;
+                return "02";
             case "March":
-                return 3;
+                return "03";
             case "April":
-                return 4;
+                return "04";
             case "May":
-                return 5;
+                return "05";
             case "June":
-                return 6;
+                return "06";
             case "July":
-                return 7;
+                return "07";
             case "August":
-                return 8;
+                return "08";
             case "September":
-                return 9;
+                return "09";
             case "October":
-                return 10;
+                return "10";
             case "November":
-                return 11;
+                return "11";
             case "December":
-                return 12;
+                return "12";
             default:
-                return 0;
+                return "0";
         }
 
     }
@@ -158,18 +158,32 @@ public class MonthlyController {
 
     public void getMonthlyMeasurements(int daysInMonth) throws FileNotFoundException {
         Read dataReader = new Read();
-        dataReader.fileReaderMonthly(getSiteID(), getMonth(), getYear());
+
         {
-            for (int day = 0; day < daysInMonth; day++) {
+            for (int day = 1; day <= daysInMonth; day++) {
                 int onlineDayliTotal = 0;
+                String checkDay;
+                if(day<10)
+                {
+                    checkDay = "0" + day;
+                }
+                else
+                {
+                    checkDay = Integer.toString(day);
+                }
+
+                dataReader.fileReaderMonthly(getSiteID(), getMonth(), getYear(), checkDay);
+
+                //day starter som 1, <= days in month, string
 
                 for (int hour = 0; hour < 24; hour++) {
                     onlineDayliTotal = onlineDayliTotal + dataReader.getOnlineVar(hour);
                 }
 
                 monthlyMeasurements[day] = new Measurement(onlineDayliTotal);
-                System.out.println("Day " + (day + 1) + ": " + onlineDayliTotal);
+                //System.out.println("Day " + (day + 1) + ": " + onlineDayliTotal);
             }
+            System.out.println(""+monthlyMeasurements[1].getOnline()+monthlyMeasurements[7].getOnline()+monthlyMeasurements[29].getOnline()+monthlyMeasurements[13].getOnline()+monthlyMeasurements[25].getOnline()+monthlyMeasurements[19].getOnline());
         }
     }
 }

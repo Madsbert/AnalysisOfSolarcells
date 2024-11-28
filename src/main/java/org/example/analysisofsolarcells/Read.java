@@ -84,13 +84,13 @@ public class Read {
         return onlineVar[index];
     }
 
-    public static void fileReaderMonthly(int siteId, int selectedMonth, int selectedYear) throws FileNotFoundException {
+    public static void fileReaderMonthly(int siteId, String selectedMonth, int selectedYear, String checkDay) throws FileNotFoundException {
         int linesInFile = 100001;
 
         int[] meassurementID = new int[linesInFile];
         int[] year = new int[linesInFile];
-        int[] month = new int[linesInFile];
-        int[] day = new int[linesInFile];
+        String[] month = new String[linesInFile];
+        String[] day = new String[linesInFile];
         String[] time = new String[linesInFile];
         int[] site = new int[linesInFile];
         int[] total = new int[linesInFile];
@@ -113,16 +113,16 @@ public class Read {
 
             meassurementID[indexMonth] = Integer.parseInt(values[0]);
             year[indexMonth] = Integer.parseInt(values[1]);
-            month[indexMonth] = Integer.parseInt(values[2]);
-            day[indexMonth] = Integer.parseInt(values[3]);
+            month[indexMonth] = values[2];
+            day[indexMonth] = values[3];
             time[indexMonth] = values[4];
             site[indexMonth] = Integer.parseInt(values[5]);
             total[indexMonth] = Integer.parseInt(values[6]);
             online[indexMonth] = Integer.parseInt(values[7]);
-            offline[indexMonth] = Integer.parseInt(values[8]);
+            //offline[indexMonth] = Integer.parseInt(values[8]);
 
 
-            if(siteId == site[indexMonth] && selectedMonth==(month[indexMonth]) && selectedYear == year[indexMonth])
+            if(siteId == site[indexMonth] && selectedMonth.equals(month[indexMonth]) && selectedYear == year[indexMonth] && checkDay.equals(day[indexMonth]))
             {
                 onlineVar[matchFoundMonth] = online[indexMonth];
                 System.out.println(onlineVar[matchFoundMonth]);
