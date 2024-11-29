@@ -106,7 +106,7 @@ public class DailyController {
     //shows graph based on measurements
     public void displayGraph(){
         XYChart.Series series = new XYChart.Series();
-        series.setName("Dato: " + DatePicker.getValue().toString());
+        series.setName("Dato: " + DatePicker.getValue().toString() + " & Site ID: " + getSiteID());
 
         //adds data to the series hourly
         for (int i = 0; i < measurements.length; i++){

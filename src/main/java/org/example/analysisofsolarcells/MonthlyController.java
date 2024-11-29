@@ -138,7 +138,7 @@ public class MonthlyController {
     private void displayMonthlyGraph(int daysInMonth) {
 
         XYChart.Series series = new XYChart.Series<>();
-        series.setName("Produktionen per dag");
+        series.setName("Month: " + MonthChoiceBox.getValue() + " & Site ID: " + getSiteID());
 
         for (int i = 0; i < daysInMonth; i++){
             int numberToAdd;
