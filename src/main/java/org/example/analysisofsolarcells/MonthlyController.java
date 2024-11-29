@@ -123,7 +123,15 @@ public class MonthlyController {
                 break;
 
             case "February":
-                daysInMonth = 28;
+                //Leap Year Fix.
+                int year = YearSpinner.getValue();
+                if ((year % 4 == 0)){
+                    daysInMonth = 29;
+                }
+                else
+                {
+                    daysInMonth = 28;
+                }
                 break;
 
             default:
