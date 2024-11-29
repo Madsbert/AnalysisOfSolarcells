@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+//Class which controls the daily UI
 public class DailyController {
 
     //references to the UI in the FXML file
@@ -28,7 +29,7 @@ public class DailyController {
     //Array to save the measurements for a day
     Measurement[] measurements = new Measurement[24];
 
-    //Get the Date and returns it as a String named selectedDate.
+    //Get the Date and return it as String named selectedDate .
     public String getDate() {
          String selectedDate = DatePicker.getValue().toString();
          return selectedDate;
