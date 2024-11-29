@@ -83,9 +83,19 @@ public class Read {
         return onlineVar[index];
     }
 
-    public static void fileReaderMonthly(int siteId, String selectedMonth, int selectedYear, String checkDay) throws FileNotFoundException {
-        int linesInFile = 100001;
+    /**
+     * Reads data from a TSV-file and saves the online measurements which matches a site-ID, Year, Month and day.
+     * @param siteId - the site id which needs to be matched
+     * @param selectedMonth - the month which need to be matched
+     * @param selectedYear - the year which need to be matched
+     * @param checkDay - the day which need to be matched
+     * @throws FileNotFoundException - if the file isn't found
+     */
 
+    public static void fileReaderMonthly(int siteId, String selectedMonth, int selectedYear, String checkDay) throws FileNotFoundException {
+        //number of lines in the file
+        int linesInFile = 100001;
+        //Arrays to save the data from each column in the file, date is split up into 3 strings, month, day, time.
         int[] meassurementID = new int[linesInFile];
         int[] year = new int[linesInFile];
         String[] month = new String[linesInFile];
@@ -95,7 +105,7 @@ public class Read {
         int[] total = new int[linesInFile];
         int[] online = new int[linesInFile];
         int[] offline = new int[linesInFile];
-
+        //gets the tvs file.
         InputStream inputFile = Read.class.getResourceAsStream("/Udtræk af data fra solcelleanlæg.tsv");
         if (inputFile == null) {
             throw new FileNotFoundException("file not found");
@@ -104,11 +114,11 @@ public class Read {
 
         int indexMonth = 0;
         int matchFoundMonth = 0;
-
+        //Gets s online value 24 times, for the specific year, month day, we are looking for.
         while (scanner.hasNextLine() && matchFoundMonth<24) {
-
+            //we split it.
             String line = scanner.nextLine();
-            String[] values = line.split("[\tT-]");
+            String[] values = line.split("[\tT-]"); //Delimiters
 
             meassurementID[indexMonth] = Integer.parseInt(values[0]);
             year[indexMonth] = Integer.parseInt(values[1]);
@@ -117,15 +127,16 @@ public class Read {
             time[indexMonth] = values[4];
             site[indexMonth] = Integer.parseInt(values[5]);
             total[indexMonth] = Integer.parseInt(values[6]);
+            //bug fix, is not used, but doesn't work without it.
             if (values[7].isEmpty())
             {
                 values[7] = "0";
             }
             online[indexMonth] = Integer.parseInt(values[7]);
-
+            //is not used.
             // offline[indexMonth] = Integer.parseInt(values[8]);
 
-
+            //checks if every value is what we are looking for, and if it is, insert online values into onlineVar array.
             if(siteId == site[indexMonth] && selectedMonth.equals(month[indexMonth]) && selectedYear == year[indexMonth] && checkDay.equals(day[indexMonth]))
             {
                 onlineVar[matchFoundMonth] = online[indexMonth];
