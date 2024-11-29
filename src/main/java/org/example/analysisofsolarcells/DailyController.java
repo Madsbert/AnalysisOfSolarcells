@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+//Class which controls the daily UI
 public class DailyController {
 
     //references to the UI in the FXML file
