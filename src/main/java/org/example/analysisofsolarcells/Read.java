@@ -8,6 +8,8 @@ public class Read {
 
     //Array to save 24measurements (1day)
     static int onlineVar[] = new int[24];
+    //hours in a day variable.
+    static int hoursInADay = 24;
 
     /**
      * Reads data from a TSV-file and saves the online measurements which matches a site-ID and date
@@ -40,7 +42,7 @@ public class Read {
 
         int index = 0;
         int matchFound = 0;
-        int hoursInADay = 24;
+
 
         //goes through each line in the file until all 24 is found or file ends
         while (scanner.hasNextLine()&&matchFound<hoursInADay) {
@@ -114,8 +116,8 @@ public class Read {
 
         int indexMonth = 0;
         int matchFoundMonth = 0;
-        //Gets s online value 24 times, for the specific year, month day, we are looking for.
-        while (scanner.hasNextLine() && matchFoundMonth<24) {
+        //Gets online value 24 times, for the specific year, month day, we are looking for.
+        while (scanner.hasNextLine() && matchFoundMonth<hoursInADay) {
             //we split it.
             String line = scanner.nextLine();
             String[] values = line.split("[\tT-]"); //Delimiters
